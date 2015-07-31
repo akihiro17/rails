@@ -212,6 +212,14 @@ module ActiveRecord
       end
     end
 
+    def test_where_with_integer_value
+      assert_raises(ArgumentError) { Post.where(10) }
+    end
+
+    def test_where_with_true
+      assert_raises(ArgumentError) { Post.where(true) }
+    end    
+
     def test_where_with_integer_for_string_column
       count = Post.where(:title => 0).count
       assert_equal 0, count

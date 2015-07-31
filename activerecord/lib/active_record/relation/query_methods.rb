@@ -552,6 +552,8 @@ module ActiveRecord
         WhereChain.new(spawn)
       elsif opts.blank?
         self
+      elsif opts.is_a?(Numeric) || opts.is_a?(TrueClass)
+        raise ArgumentError, "#{opts.class} is not allowed as the argument of #where"
       else
         spawn.where!(opts, *rest)
       end
