@@ -367,10 +367,15 @@ class TextHelperTest < ActionView::TestCase
   end
 
   def test_pluralization
+    byebug
     assert_equal("1 count", pluralize(1, "count"))
     assert_equal("2 counts", pluralize(2, "count"))
+    assert_equal("-1 count", pluralize(-1, "count"))
+    assert_equal("-2 counts", pluralize(-2, "count"))
     assert_equal("1 count", pluralize('1', "count"))
     assert_equal("2 counts", pluralize('2', "count"))
+    assert_equal("-1 count", pluralize('-1', "count"))
+    assert_equal("-2 counts", pluralize('-2', "count"))
     assert_equal("1,066 counts", pluralize('1,066', "count"))
     assert_equal("1.25 counts", pluralize('1.25', "count"))
     assert_equal("1.0 count", pluralize('1.0', "count"))
@@ -381,6 +386,7 @@ class TextHelperTest < ActionView::TestCase
     assert_equal("10 buffaloes", pluralize(10, "buffalo"))
     assert_equal("1 berry", pluralize(1, "berry"))
     assert_equal("12 berries", pluralize(12, "berry"))
+    
   end
 
   def test_pluralization_with_locale

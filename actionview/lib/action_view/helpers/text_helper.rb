@@ -202,7 +202,7 @@ module ActionView
         [prefix, affix, postfix].join
       end
 
-      # Attempts to pluralize the +singular+ word unless +count+ is 1. If
+      # Attempts to pluralize the +singular+ word unless +count+ is 1 or -1. If
       # +plural+ is supplied, it will use that when count is > 1, otherwise
       # it will use the Inflector to determine the plural form.
       #
@@ -226,7 +226,7 @@ module ActionView
       #   pluralize(2, 'Person', locale: :de)
       #   # => 2 Personen
       def pluralize(count, singular, plural = nil, locale: nil)
-        word = if (count == 1 || count =~ /^1(\.0+)?$/)
+        word = if (count == 1 || count == -1 || count =~ /^-?1(\.0+)?$/)
           singular
         else
           plural || singular.pluralize(locale)
