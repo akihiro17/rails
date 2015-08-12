@@ -92,7 +92,7 @@ module ActiveSupport
     #   hash = ActiveSupport::HashWithIndifferentAccess.new
     #   hash[:key] = 'value'
     #
-    # This value can be later fetched using either +:key+ or +'key'+.
+    # This value can be later fetched using either +:key+ or <tt>'key'</tt>.
     def []=(key, value)
       regular_writer(convert_key(key), convert_value(value, for: :assignment))
     end
@@ -113,7 +113,7 @@ module ActiveSupport
     # <tt>ActiveSupport::HashWithIndifferentAccess</tt> or a regular +Hash+.
     # In either case the merge respects the semantics of indifferent access.
     #
-    # If the argument is a regular hash with keys +:key+ and +"key"+ only one
+    # If the argument is a regular hash with keys +:key+ and <tt>"key"</tt> only one
     # of the values end up in the receiver, but which one is unspecified.
     #
     # When given a block, the value for duplicated keys will be determined
