@@ -212,8 +212,11 @@ module ActiveRecord
       end
 
       # Indicates whether the table associated with this class exists
-      def table_exists?
-        connection.schema_cache.table_exists?(table_name)
+      def table_exists?        
+        connection.schema_cache.table_exists?(table_name)        
+      rescue NameError
+        p '-------------------------------------'
+        false
       end
 
       def attributes_builder # :nodoc:

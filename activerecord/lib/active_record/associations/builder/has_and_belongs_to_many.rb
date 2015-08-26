@@ -1,3 +1,4 @@
+require 'byebug'
 module ActiveRecord::Associations::Builder
   class HasAndBelongsToMany # :nodoc:
     class JoinTableResolver
@@ -55,6 +56,9 @@ module ActiveRecord::Associations::Builder
 
         def self.table_name
           table_name_resolver.join_table
+        rescue NameError
+          reset_table_name unless defined?(@table_name)
+          @table_name
         end
 
         def self.compute_type(class_name)

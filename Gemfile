@@ -78,6 +78,8 @@ group :test do
   gem 'benchmark-ips'
 end
 
+gem 'ruby-prof'
+
 platforms :ruby do
   gem 'nokogiri', '>= 1.4.5'
 

@@ -13,7 +13,7 @@ require 'models/tag'
 require 'models/tagging'
 require 'models/person'
 require 'models/reader'
-require 'models/parrot'
+# require 'models/parrot'
 require 'models/ship_part'
 require 'models/ship'
 require 'models/liquid'
@@ -21,6 +21,9 @@ require 'models/molecule'
 require 'models/electron'
 require 'models/man'
 require 'models/interest'
+require 'models/admin'
+require 'models/admin/dummy'
+require 'byebug'
 
 class AssociationsTest < ActiveRecord::TestCase
   fixtures :accounts, :companies, :developers, :projects, :developers_projects,
@@ -279,6 +282,13 @@ class OverridingAssociationsTest < ActiveRecord::TestCase
     belongs_to :belongs_to, :class_name => 'DifferentPerson'
     has_one :has_one, :class_name => 'DifferentPerson'
   end
+
+  def test_dummy
+    private_const = OverridingAssociationsTest::DifferentPeopleList.const_get(:HABTM_HasAndBelongsToMany)
+    assert_not private_const.table_exists?
+    private_const = OverridingAssociationsTest::PeopleList.const_get(:HABTM_HasAndBelongsToMany)
+    assert_not private_const.table_exists?
+  end  
 
   def test_habtm_association_redefinition_callbacks_should_differ_and_not_inherited
     # redeclared association on AR descendant should not inherit callbacks from superclass
