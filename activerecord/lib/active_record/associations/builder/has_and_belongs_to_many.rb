@@ -55,6 +55,8 @@ module ActiveRecord::Associations::Builder
 
         def self.table_name
           table_name_resolver.join_table
+        rescue NameError
+          super
         end
 
         def self.compute_type(class_name)
