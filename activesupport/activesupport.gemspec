@@ -26,4 +26,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'minitest',   '~> 5.1'
   s.add_dependency 'concurrent-ruby', '~> 1.0.0.pre2', '< 2.0.0'
   s.add_dependency 'method_source'
+  s.add_development_dependency 'allocation_stats'
+  s.add_development_dependency 'memory_profiler'
 end

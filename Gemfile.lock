@@ -172,6 +172,9 @@ GEM
     bcrypt (3.1.10-x86-mingw32)
     beaneater (1.0.0)
     benchmark-ips (2.3.0)
+    bugspots (0.2.1)
+      rainbow
+      rugged (>= 0.21.0)
     builder (3.2.2)
     bunny (2.2.0)
       amq-protocol (>= 2.0.0)
@@ -204,6 +207,7 @@ GEM
       nokogiri
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
+    memory_profiler (0.9.4)
     metaclass (0.0.4)
     method_source (0.8.2)
     mime-types (2.6.2)
@@ -238,6 +242,7 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rainbow (2.0.0)
     rake (10.4.2)
     rdoc (4.2.0)
     redcarpet (3.2.3)
@@ -256,6 +261,7 @@ GEM
       resque (~> 1.25)
       rufus-scheduler (~> 3.0)
     rufus-scheduler (3.1.4)
+    rugged (0.23.2)
     sass (3.4.18)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
@@ -312,6 +318,7 @@ DEPENDENCIES
   backburner
   bcrypt (~> 3.1.10)
   benchmark-ips
+  bugspots
   byebug
   coffee-rails (~> 4.1.0)
   concurrent-ruby (~> 1.0.0.pre2)!
@@ -323,6 +330,7 @@ DEPENDENCIES
   json
   kindlerb (= 0.1.1)
   mail!
+  memory_profiler
   minitest (< 5.3.4)
   mocha (~> 0.14)
   mysql (>= 2.9.0)

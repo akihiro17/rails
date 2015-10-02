@@ -44,19 +44,19 @@ module ActiveRecord
       binds = nil
 
       unless (payload[:binds] || []).empty?
-        binds = "  " + payload[:binds].map { |attr| render_bind(attr) }.inspect
+        binds = "  ".freeze + payload[:binds].map { |attr| render_bind(attr) }.inspect
       end
 
       name = colorize_payload_name(name, payload[:name])
       sql  = color(sql, sql_color(sql), true)
-
+      
       debug "  #{name}  #{sql}#{binds}"
     end
 
     private
 
     def colorize_payload_name(name, payload_name)
-      if payload_name.blank? || payload_name == "SQL" # SQL vs Model Load/Exists
+      if payload_name.blank? || payload_name == "SQL".freeze # SQL vs Model Load/Exists
         color(name, MAGENTA, true)
       else
         color(name, CYAN, true)
